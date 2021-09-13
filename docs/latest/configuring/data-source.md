@@ -37,7 +37,7 @@ _Not sure if you have `docker` installed already? Try running `docker --version`
 in command prompt or terminal_
 
 > If you are using `Docker Toolbox` you need to change the _PROXY_DOMAIN_
-> parameter in _platform/viewer/package.json_ to http://192.168.99.100:8042 or
+> parameter in _platform/viewer/package.json_ to http://192.168.99.100:8082 or
 > the ip docker-machine ip throws. This is the value [`WebPack`][webpack-proxy]
 > uses to proxy requests
 
@@ -53,8 +53,8 @@ yarn run orthanc:up
 _Upload your first Study:_
 
 1. Navigate to
-   [Orthanc's web interface](http://localhost:8042/app/explorer.html) at
-   `http://localhost:8042/app/explorer.html` in a web browser.
+   [Orthanc's web interface](http://localhost:8082/app/explorer.html) at
+   `http://localhost:8082/app/explorer.html` in a web browser.
 2. In the top right corner, click "Upload"
 3. Click "Select files to upload..." and select one or more DICOM files
 4. Click "Start the upload"
@@ -92,12 +92,12 @@ is running the `dev:orthanc` script in our project's `package.json`. That script
 is:
 
 ```js
-cross-env NODE_ENV=development PROXY_TARGET=/dicom-web PROXY_DOMAIN=http://localhost:8042 APP_CONFIG=config/docker_nginx-orthanc.js webpack-dev-server --config .webpack/webpack.pwa.js -w
+cross-env NODE_ENV=development PROXY_TARGET=/dicom-web PROXY_DOMAIN=http://localhost:8082 APP_CONFIG=config/docker_nginx-orthanc.js webpack-dev-server --config .webpack/webpack.pwa.js -w
 ```
 
 - `cross-env` sets three environment variables
   - PROXY_TARGET: `/dicom-web`
-  - PROXY_DOMAIN: `http://localhost:8042`
+  - PROXY_DOMAIN: `http://localhost:8082`
   - APP_CONFIG: `config/docker_nginx-orthanc.js`
 - `webpack-dev-server` runs using the `.webpack/webpack.pwa.js` configuration
   file. It will watch for changes and update as we develop.
