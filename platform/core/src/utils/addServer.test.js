@@ -2,17 +2,29 @@ import addServers from './addServers';
 
 describe('addServers', () => {
   const servers = {
+    // dicomWeb: [
+    //   {
+    //     name: 'DCM4CHEE',
+    //     wadoUriRoot: 'http://localhost:8899/wado',
+    //     qidoRoot: 'http://localhost:8899/dicom-web',
+    //     wadoRoot: 'http://localhost:8899/dicom-web',
+    //     qidoSupportsIncludeField: true,
+    //     imageRendering: 'wadors',
+    //     thumbnailRendering: 'wadors',
+    //   },
+    // ],
     dicomWeb: [
       {
-        name: 'DCM4CHEE',
-        wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
-        qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        qidoSupportsIncludeField: true,
+        name: 'Orthanc',
+        wadoUriRoot: 'http://localhost:8899/wado',
+        qidoRoot: 'http://localhost:8899/dicom-web',
+        wadoRoot: 'http://localhost:8899/dicom-web',
+        qidoSupportsIncludeField: false,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
       },
     ],
+
     oidc: [
       {
         authority: 'http://127.0.0.1/auth/realms/ohif',
@@ -45,14 +57,22 @@ describe('addServers', () => {
     });
     expect(store.dispatch).toBeCalledWith({
       server: {
+        name: 'Orthanc',
+        wadoUriRoot: 'http://localhost:8899/wado',
+        qidoRoot: 'http://localhost:8899/dicom-web',
+        wadoRoot: 'http://localhost:8899/dicom-web',
+        qidoSupportsIncludeField: false,
         imageRendering: 'wadors',
-        name: 'DCM4CHEE',
-        qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        qidoSupportsIncludeField: true,
         thumbnailRendering: 'wadors',
+
+        // imageRendering: 'wadors',
+        // name: 'DCM4CHEE',
+        // qidoRoot: 'http://localhost:8899/dicom-web',
+        // qidoSupportsIncludeField: true,
+        // thumbnailRendering: 'wadors',
         type: 'dicomWeb',
-        wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
+        // wadoRoot: 'http://localhost:8899/dicom-web',
+        // wadoUriRoot: 'http://localhost:8899/wado',
       },
       type: 'ADD_SERVER',
     });

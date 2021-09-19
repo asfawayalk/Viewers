@@ -37,9 +37,9 @@ window.config = {
     dicomWeb: [
       {
         name: 'DCM4CHEE',
-        wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
-        qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
+        wadoUriRoot: 'http://localhost:8899/wado',
+        qidoRoot: 'http://localhost:8899/dicom-web',
+        wadoRoot: 'http://localhost:8899/dicom-web',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
@@ -126,7 +126,9 @@ globally defined styles/scripts.
 > We're trying to embed the OHIF Viewer into an existing React App, but seeing
 > react-dom and react conflicts. What can we do?
 
-If you are installing OHIF viewer inside another react app, you may use `installViewer` as follows:
+If you are installing OHIF viewer inside another react app, you may use
+`installViewer` as follows:
+
 ```
 import { installViewer } from '@ohif/viewer'
 
@@ -157,7 +159,6 @@ not be compatible with existing `react` apps. `@ohif/viewer` also exports `App`
 which is a react component that takes the `configuration` outlined above as
 props. You can use it as a reusable component, and to avoid `react` version
 conflict issues.
-
 
 <!--
   LINKS

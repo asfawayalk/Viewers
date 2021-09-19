@@ -3,16 +3,27 @@ window.config = {
   extensions: [],
   showStudyList: true,
   servers: {
+    // dicomWeb: [
+    //   {
+    //     name: 'DCM4CHEE',
+    //     wadoUriRoot: 'http://localhost:8899/wado',
+    //     qidoRoot: 'http://localhost:8899/dicom-web',
+    //     wadoRoot: 'http://localhost:8899/dicom-web',
+    //     qidoSupportsIncludeField: true,
+    //     imageRendering: 'wadors',
+    //     thumbnailRendering: 'wadors',
+    //     enableStudyLazyLoad: true,
+    //   },
+    // ],
     dicomWeb: [
       {
-        name: 'DCM4CHEE',
-        wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
-        qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        qidoSupportsIncludeField: true,
+        name: 'Orthanc',
+        wadoUriRoot: 'http://localhost:8899/wado',
+        qidoRoot: 'http://localhost:8899/dicom-web',
+        wadoRoot: 'http://localhost:8899/dicom-web',
+        qidoSupportsIncludeField: false,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
-        enableStudyLazyLoad: true,
       },
     ],
   },
